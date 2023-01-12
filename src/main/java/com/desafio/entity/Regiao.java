@@ -1,22 +1,34 @@
 package com.desafio.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
+@Entity
 public class Regiao {
 
-    @XmlElement
-    public Geracao geracao;
-
-    @XmlElement
-    public Compra compra;
-
-    @XmlElement
-    public PrecoMedio precoMedio;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @JsonIgnore
+    private Long id;
 
     @XmlElement
     public String sigla;
+
+    @XmlElement
+    @OneToOne(cascade = CascadeType.PERSIST)
+    public Geracao geracao;
+
+    @XmlElement
+    @OneToOne(cascade = CascadeType.PERSIST)
+    public Compra compra;
+
+    @XmlElement
+    @OneToOne(cascade = CascadeType.PERSIST)
+    public PrecoMedio precoMedio;
 
     public Geracao getGeracao() {
         return geracao;
