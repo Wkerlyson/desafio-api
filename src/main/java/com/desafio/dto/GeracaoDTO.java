@@ -1,23 +1,13 @@
-package com.desafio.entity;
+package com.desafio.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
-import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
-@XmlRootElement
-@Entity
-public class PrecoMedio {
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    @JsonIgnore
-    private Long id;
-
+@XmlRootElement(name = "geracao")
+public class GeracaoDTO {
     @JacksonXmlElementWrapper(useWrapping = false)
-    @ElementCollection
     public List<Double> valor;
 
     public List<Double> getValor() {

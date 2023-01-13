@@ -1,12 +1,13 @@
 package com.desafio.service;
 
+import com.desafio.dto.AgenteDTO;
+import com.desafio.dto.RegiaoDTO;
 import com.desafio.entity.Agente;
-import com.desafio.entity.Regiao;
 
 import java.util.List;
 
 public interface AgenteService {
-    List<Agente> salvar(List<Agente> agente);
+    List<Agente> salvar(List<AgenteDTO> agente);
 
-    List<Regiao> buscarDadosPorRegiao(String sigla);
+    List<RegiaoDTO> buscarDadosPorRegiao(String sigla);
 }

@@ -1,10 +1,12 @@
 package com.desafio.resource;
 
-import com.desafio.entity.Agentes;
-import com.desafio.entity.Regiao;
+import com.desafio.dto.AgentesDTO;
+import com.desafio.dto.RegiaoDTO;
 import com.desafio.service.AgenteService;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,17 +21,19 @@ public class AgentResource {
     private AgenteService service;
 
     @PostMapping
-    public void salvar(@RequestParam MultipartFile file) throws IOException {
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity salvar(@RequestParam MultipartFile file) throws IOException {
         XmlMapper xmlMapper = new XmlMapper();
-        Agentes value = xmlMapper.readValue(file.getBytes(), Agentes.class);
-        value.getAgente().stream().forEach(c -> System.out.println(c.getCodigo()));
+        AgentesDTO value = xmlMapper.readValue(file.getBytes(), AgentesDTO.class);
 
         service.salvar(value.getAgente());
+
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/dados-por-regiao/{sigla}")
-    public List<Regiao> listarDadosPorRegiao(@PathVariable String sigla){
-        List<Regiao> list = service.buscarDadosPorRegiao(sigla);
-        return list;
+    public ResponseEntity<List<RegiaoDTO>> listarDadosPorRegiao(@PathVariable String sigla){
+        List<RegiaoDTO> list = service.buscarDadosPorRegiao(sigla);
+        return ResponseEntity.ok().body(list);
     }
 }
