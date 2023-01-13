@@ -32,6 +32,8 @@ public class AgenteServiceImpl implements AgenteService {
                 .map(user -> mapper.map(user, Agente.class))
                 .collect(Collectors.toList());
 
+        agentesDTO.stream().forEach(c -> System.out.println("Agente.codigo:" + c.getCodigo()));
+
         return this.agenteRepository.saveAll(agentes);
     }
 

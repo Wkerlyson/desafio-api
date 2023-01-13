@@ -23,7 +23,6 @@ public class AgentResource {
     public ResponseEntity salvar(@RequestParam MultipartFile file) throws IOException {
         XmlMapper xmlMapper = new XmlMapper();
         AgentesDTO agentesDTO = xmlMapper.readValue(file.getBytes(), AgentesDTO.class);
-
         service.salvar(agentesDTO.getAgente());
         return ResponseEntity.ok().build();
     }
