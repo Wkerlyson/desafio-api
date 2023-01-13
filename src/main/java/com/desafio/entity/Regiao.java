@@ -1,10 +1,12 @@
 package com.desafio.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
+@Data
 public class Regiao {
 
     @Id
@@ -21,27 +23,4 @@ public class Regiao {
     @OneToOne(cascade = CascadeType.PERSIST)
     public Compra compra;
 
-    public Geracao getGeracao() {
-        return geracao;
-    }
-
-    public void setGeracao(Geracao geracao) {
-        this.geracao = geracao;
-    }
-
-    public Compra getCompra() {
-        return compra;
-    }
-
-    public void setCompra(Compra compra) {
-        this.compra = compra;
-    }
-
-    public String getSigla() {
-        return sigla;
-    }
-
-    public void setSigla(String sigla) {
-        this.sigla = sigla;
-    }
 }

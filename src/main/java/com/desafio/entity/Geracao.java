@@ -1,9 +1,12 @@
 package com.desafio.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Data
 public class Geracao {
 
     @Id
@@ -12,12 +15,4 @@ public class Geracao {
 
     @ElementCollection
     public List<Double> valor;
-
-    public List<Double> getValor() {
-        return valor;
-    }
-
-    public void setValor(List<Double> valor) {
-        this.valor = valor;
-    }
 }

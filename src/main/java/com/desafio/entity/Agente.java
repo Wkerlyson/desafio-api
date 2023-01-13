@@ -1,12 +1,14 @@
 package com.desafio.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
 @Entity
+@Data
 public class Agente {
 
     @Id
@@ -19,28 +21,4 @@ public class Agente {
 
     @OneToMany(cascade = CascadeType.PERSIST)
     public List<Regiao> regiao;
-
-    public Integer getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public List<Regiao> getRegiao() {
-        return regiao;
-    }
-
-    public void setRegiao(List<Regiao> regiao) {
-        this.regiao = regiao;
-    }
 }

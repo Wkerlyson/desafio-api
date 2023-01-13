@@ -1,9 +1,14 @@
 package com.desafio.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "regiao")
+@Getter
+@Setter
 public class RegiaoDTO {
 
     @XmlElement
@@ -17,36 +22,4 @@ public class RegiaoDTO {
 
     @XmlElement
     public PrecoMedioDTO precoMedio;
-
-    public GeracaoDTO getGeracao() {
-        return geracao;
-    }
-
-    public void setGeracao(GeracaoDTO geracao) {
-        this.geracao = geracao;
-    }
-
-    public CompraDTO getCompra() {
-        return compra;
-    }
-
-    public void setCompra(CompraDTO compra) {
-        this.compra = compra;
-    }
-
-    public PrecoMedioDTO getPrecoMedio() {
-        return precoMedio;
-    }
-
-    public void setPrecoMedio(PrecoMedioDTO precoMedio) {
-        this.precoMedio = precoMedio;
-    }
-
-    public String getSigla() {
-        return sigla;
-    }
-
-    public void setSigla(String sigla) {
-        this.sigla = sigla;
-    }
 }
