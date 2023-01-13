@@ -5,7 +5,6 @@ import com.desafio.dto.RegiaoDTO;
 import com.desafio.service.AgenteService;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,7 +20,6 @@ public class AgentResource {
     private AgenteService service;
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity salvar(@RequestParam MultipartFile file) throws IOException {
         XmlMapper xmlMapper = new XmlMapper();
         AgentesDTO agentesDTO = xmlMapper.readValue(file.getBytes(), AgentesDTO.class);
