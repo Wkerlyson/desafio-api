@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Data
-public class Compra {
+public class Generation {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)

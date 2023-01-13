@@ -11,9 +11,9 @@ import java.util.List;
 @XmlRootElement(name = "agentes")
 @Getter
 @Setter
-public class AgentesDTO {
+public class AgentsDTO {
     @XmlElement
     private double versao;
     @JacksonXmlElementWrapper(useWrapping = false)
-    private List<AgenteDTO> agente;
+    private List<AgentDTO> agente;
 }

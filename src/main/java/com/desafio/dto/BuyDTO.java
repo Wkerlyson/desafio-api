@@ -7,10 +7,10 @@ import lombok.Setter;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
-@XmlRootElement(name = "precoMedio")
+@XmlRootElement(name = "compra")
 @Getter
 @Setter
-public class PrecoMedioDTO {
+public class BuyDTO {
     @JacksonXmlElementWrapper(useWrapping = false)
     public List<Double> valor;
 }

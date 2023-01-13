@@ -9,17 +9,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "regiao")
 @Getter
 @Setter
-public class RegiaoDTO {
+public class RegionDTO {
 
     @XmlElement
     public String sigla;
 
     @XmlElement
-    public GeracaoDTO geracao;
+    public GenerationDTO geracao;
 
     @XmlElement
-    public CompraDTO compra;
+    public BuyDTO compra;
 
     @XmlElement
-    public PrecoMedioDTO precoMedio;
+    public AveragePriceDTO precoMedio;
 }

@@ -12,13 +12,13 @@ import java.util.List;
 @XmlRootElement(name = "agente")
 @Getter
 @Setter
-public class AgenteDTO {
+public class AgentDTO {
     @XmlElement
     private int codigo;
     @XmlElement
     private Date data;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    public List<RegiaoDTO> regiao;
+    public List<RegionDTO> regiao;
 
 }
